@@ -6,7 +6,7 @@ import be.tarsos.dsp.io.jvm.JVMAudioInputStream;
 import be.tarsos.dsp.pitch.PitchDetectionHandler;
 import be.tarsos.dsp.pitch.PitchDetectionResult;
 import be.tarsos.dsp.pitch.PitchProcessor;
-import javafx.scene.input.MouseButton;
+//import javafx.scene.input.MouseButton;
 
 import javax.sound.sampled.*;
 import java.awt.*;
@@ -168,7 +168,7 @@ public class Main implements PitchDetectionHandler {
 
 
             pitches.add((double) pitch);
-            System.out.println(pitch + "hz");
+            System.out.println(pitch + " hz");
             count++;
             //TODO: Get the robot to do things based on musical notes.
             try {
@@ -178,28 +178,87 @@ public class Main implements PitchDetectionHandler {
 
 
                 //On my flute, this is B flat
-                if(isBetween(pitch,450,500)){
+                if(true == false/*isBetween(pitch,450,500)*/){
 
 //                    robot.mouseMove(mouseX + 10,mouseY);
-                    robot.keyPress(KeyEvent.VK_RIGHT);
-                    robot.keyRelease(KeyEvent.VK_RIGHT);
+//                   robot.keyPress(KeyEvent.VK_RIGHT);
+//                    robot.keyRelease(KeyEvent.VK_RIGHT);
                 }
                 //On my flute, this is A
                 else if(isBetween(pitch,410,450)){
 
-//                    robot.mouseMove(mouseX, mouseY + 10);
-                    robot.keyPress(KeyEvent.VK_DOWN);
-                    robot.keyRelease(KeyEvent.VK_DOWN);
+                    robot.mouseMove(mouseX + 10, mouseY);
+//                    robot.keyPress(KeyEvent.VK_DOWN);
+//                    robot.keyRelease(KeyEvent.VK_DOWN);
+//                	robot.keyPress(KeyEvent.VK_A);
+//                	robot.keyRelease(KeyEvent.VK_A);
                 }
-                else if(isBetween(pitch,350,410)){
+//                else if(isBetween(pitch,350,410)){
 //                    robot.mouseMove(mouseX - 10, mouseY);
-                    robot.keyPress(KeyEvent.VK_LEFT);
-                    robot.keyRelease(KeyEvent.VK_LEFT);
-                }
-                else if(isBetween(pitch,510,540)){
+//                    robot.keyPress(KeyEvent.VK_LEFT);
+//                    robot.keyRelease(KeyEvent.VK_LEFT);
+//                }
+//                else if(isBetween(pitch,510,540)){
 //                    robot.mouseMove(mouseX, mouseY - 10);
-                    robot.keyPress(KeyEvent.VK_A);
-                    robot.keyRelease(KeyEvent.VK_A);
+//                    robot.keyPress(KeyEvent.VK_A);
+//                    robot.keyRelease(KeyEvent.VK_A);
+//                }
+                // Violin B
+                else if(isBetween(pitch,450,500)){
+                	robot.keyPress(KeyEvent.VK_B);
+                	robot.keyRelease(KeyEvent.VK_B);
+                }
+                // Violin C
+                else if(isBetween(pitch,500,550)){
+                	robot.keyPress(KeyEvent.VK_C);
+                	robot.keyRelease(KeyEvent.VK_C);
+                }
+                // Violin D
+                else if(isBetween(pitch,550,600)){
+                	robot.keyPress(KeyEvent.VK_D);
+                	robot.keyRelease(KeyEvent.VK_D);
+                }
+                // Violin open E
+                else if(isBetween(pitch,650,700)){
+//                	robot.keyPress(KeyEvent.VK_E);
+//                	robot.keyRelease(KeyEvent.VK_E);
+                	robot.mouseMove(mouseX, mouseY - 10);
+                }
+                // Violin F
+                else if(isBetween(pitch,700,750)){
+                	robot.keyPress(KeyEvent.VK_F);
+                	robot.keyRelease(KeyEvent.VK_F);
+                }
+                // Violin G
+                else if(isBetween(pitch,750,800)){
+                	robot.keyPress(KeyEvent.VK_G);
+                	robot.keyRelease(KeyEvent.VK_G);
+                }
+                // Violin A on E string
+                else if(isBetween(pitch,550,900)){
+                	robot.keyPress(KeyEvent.VK_H);
+                	robot.keyRelease(KeyEvent.VK_H);
+                }
+                // Violin open G
+                // The default reading seems to be ~81 so I
+                // had to shorten this interval
+                else if(isBetween(pitch,90,100)){
+//                	robot.keyPress(KeyEvent.VK_B);
+//                	robot.keyRelease(KeyEvent.VK_B);
+                	robot.mouseMove(mouseX - 10, mouseY);
+                }
+                // Violin open D
+                else if(isBetween(pitch,290,300)){
+//                	robot.keyPress(KeyEvent.VK_B);
+//                	robot.keyRelease(KeyEvent.VK_B);
+                	robot.mouseMove(mouseX , mouseY + 10);
+                }
+                // Violin C on G string
+                else if(isBetween(pitch,260,265)){
+//                	robot.keyPress(KeyEvent.VK_B);
+//                	robot.keyRelease(KeyEvent.VK_B);
+                	robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                	robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
                 }
 
             } catch (AWTException e) {
